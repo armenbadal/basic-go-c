@@ -4,18 +4,19 @@
 '
 SUB Main
     LET a = 4
+    LET b = -2
 
-    IF a > 0 THEN
+    IF a > 0 AND v < 0 THEN
         PRINT "Ok"
     END IF
 
-    IF a = 7 THEN
+    IF a = 7 OR b <= -2 THEN
         PRINT "seven"
     ELSE
         PRINT "not seven"
     END IF
 
-    IF a >= 12 THEN
+    IF NOT (a >= 12) THEN
         PRINT "A"
     ELSEIF a <= 13 THEN
         PRINT "B"

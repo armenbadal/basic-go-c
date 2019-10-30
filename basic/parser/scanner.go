@@ -22,7 +22,8 @@ var keywords = map[string]int{
 	"CALL":   xCall,
 	"END":    xEnd,
 	"AND":    xAnd,
-	"OR":     xOr}
+	"OR":     xOr,
+	"NOT":    xNot}
 
 // Բառային վերլուծիչի ստրուկտուրան
 type scanner struct {

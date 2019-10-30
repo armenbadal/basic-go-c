@@ -1,7 +1,5 @@
 package parser
 
-import "fmt"
-
 const (
 	xNone = iota
 
@@ -64,8 +62,4 @@ func (l *lexeme) is(exps ...int) bool {
 		}
 	}
 	return false
-}
-
-func (l *lexeme) ToString() string {
-	return fmt.Sprintf("<%d,\t%s,\t%d>", l.token, l.value, l.line)
 }

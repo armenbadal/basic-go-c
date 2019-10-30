@@ -68,7 +68,9 @@ func (p *Parser) parseProgram() error {
 		if err != nil {
 			return err
 		}
+
 		p.program.Members[p0.Name] = p0
+
 		if err = p.parseNewLines(); err != nil {
 			return err
 		}
@@ -205,8 +207,7 @@ func (p *Parser) parseLet() (ast.Node, error) {
 		return nil, err
 	}
 
-	_, err = p.match(xEq)
-	if err != nil {
+	if _, err = p.match(xEq); err != nil {
 		return nil, err
 	}
 
