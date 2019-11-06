@@ -128,10 +128,19 @@ func (p *Parser) parseSubroutine() (*ast.Subroutine, error) {
 		}
 	}
 
+	sub := &ast.Subroutine{
+		Name:       name,
+		Parameters: pars,
+		Locals:     nil,
+		Body:       nil}
+	// TODO: add this subroutine to the program
+	// TODO: add parapeters and subroutine name to the locals
+
 	body, err := p.parseSequence()
 	if err != nil {
 		return nil, err
 	}
+	sub.Body = body
 
 	if _, err := p.match(xEnd); err != nil {
 		return nil, err
@@ -140,7 +149,6 @@ func (p *Parser) parseSubroutine() (*ast.Subroutine, error) {
 		return nil, err
 	}
 
-	sub := &ast.Subroutine{Name: name, Parameters: pars, Body: body}
 	// subrs[name] = sub
 
 	// if clinks[name] != nil {

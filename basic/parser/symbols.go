@@ -6,6 +6,7 @@ type scope struct {
 }
 
 type symbols struct {
+	names  []string
 	scopes *scope
 }
 
@@ -14,7 +15,9 @@ func (s *symbols) openScope() {
 }
 
 func (s *symbols) closeScope() {
-	s.scopes = s.scopes.parent
+	if s.scopes != nil {
+		s.scopes = s.scopes.parent
+	}
 }
 
 func (s *symbols) add(n string) {
